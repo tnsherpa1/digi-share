@@ -48,11 +48,20 @@
         <a class="navbar-brand" href="#">DigiShare</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "About", "/path1"  %></li>
+            <li><%= link_to "Books", "/path2"  %></li>
+            <li><%= link_to "Contact", "/path3"  %></li>
           </ul>
-        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to truncate(current_user.email, length:25).html_safe, edit_user_registration_path %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+          </div>
       </div>
     </div>
 
