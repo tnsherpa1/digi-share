@@ -1,2 +1,11 @@
-<h1>DigiShare, online library to manage and share your ebooks</h1>
-<%= Time.now() %>
+<% if current_user %>
+<h3>Institution: <%= @tenant.name %></h3>
+<% else %>
+<div class="jumbotron">
+  <h2>DigiShare, Create and Share your digital library with your team.</h2>
+  <p class="lead">
+    Our goal is to simplify your ability to share your digital resources with your team.
+  </p>
+  <%= link_to 'Sign Up Now', new_user_registration_path, class: 'btn btn-primary sign-up' %>
+</div>
+<% end %>
