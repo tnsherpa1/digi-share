@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205192041) do
+ActiveRecord::Schema.define(version: 20180207223359) do
+
+  create_table "libraries", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tenant_id"
+    t.index ["tenant_id"], name: "index_libraries_on_tenant_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.integer "tenant_id"

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :tenants do
+    resources :libraries
+  end
+
   resources :members
   get 'home/index'
 

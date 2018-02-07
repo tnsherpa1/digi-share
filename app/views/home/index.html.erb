@@ -1,5 +1,6 @@
 <% if current_user %>
 <h3>Institution: <%= @tenant.name %></h3>
+<%= render "libraries/list" %>
 <% else %>
 <div class="jumbotron">
   <h2>DigiShare, Create and Share your digital library with your team.</h2>

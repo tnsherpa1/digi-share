@@ -9,6 +9,7 @@ class HomeController < ApplicationController
         Tenant.set_current_tenant current_user.tenants.first
       end
       @tenant = Tenant.current_tenant
+      @libraries = Library.tenant_and_lib(@tenant.id)
       params[:tenant_id] = @tenant.id
     end
   end
