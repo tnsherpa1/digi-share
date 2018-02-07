@@ -1,8 +1,5 @@
 Rails.application.configure do
 
-  # devise says to define default url
-  config.action_mailer.default_url_options = { :host => 'digishare.herokuapp.com', :protocol => 'https' }
-
   ActionMailer::Base.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
